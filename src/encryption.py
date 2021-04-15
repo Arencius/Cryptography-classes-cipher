@@ -30,8 +30,3 @@ class Encrypt:
         :return: encrypted text
         """
         return ''.join(self.encrypt_letter(letter) if letter in Encrypt.ALPHABET else letter for letter in text.lower())
-
-
-#e = Encrypt(3)
-#x = 'abcdefghijklmnopqrstuwxyz'
-#print(e.encrypt_text(x))

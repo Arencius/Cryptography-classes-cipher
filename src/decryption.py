@@ -1,4 +1,3 @@
-import random
 import enchant
 from src.encryption import Encrypt
 import re
@@ -37,7 +36,7 @@ class Decrypt:
         :param letter: letter to decrypt
         :param secret_value: secret value used for encrypting the text.
                             Function gives the correct output only if those values match.
-        :return:
+        :return: new letter
         """
         indexes = list(range(len(Encrypt.ALPHABET)))
         for index in indexes:
@@ -52,19 +51,10 @@ class Decrypt:
         """
 
         for sv in range(2, 26):
-            decrypted_text = ''.join(self.decrypt_letter(letter, sv) if letter in ALPHABET else letter for letter in text.lower())
+            decrypted_text = ''.join(self.decrypt_letter(letter, sv) if letter in Encrypt.ALPHABET else letter for letter in text.lower())
             # text with removed punctuation
             decrypted_text_clear = re.sub(r'[,!?.]', '', decrypted_text)
 
             # if whole text consists of valid english words, then it's correctly decrypted message
             if is_english(decrypted_text_clear):
                 return decrypted_text
-
-
-text = 'your stuff, is broken. hello carpenter'
-e = Encrypt(key = 4)
-encrypted = e.encrypt_text(text)
-print('Encrypted word:', encrypted)
-
-d = Decrypt(key = 4)
-print('Decrypted word:', d.decrypt_text(encrypted))
