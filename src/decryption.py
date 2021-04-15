@@ -54,7 +54,7 @@ class Decrypt:
         for sv in range(2, 26):
             decrypted_text = ''.join(self.decrypt_letter(letter, sv) if letter in Encrypt.ALPHABET else letter for letter in text.lower())
             # text with removed punctuation
-            decrypted_text_clear = re.sub(r'[,!?.]', '', decrypted_text)
+            decrypted_text_clear = re.sub(r'[,!?.;:]', '', decrypted_text)
 
             # if whole text consists of valid english words, then it's correctly decrypted message
             if is_english(decrypted_text_clear):
