@@ -45,9 +45,9 @@ class Decrypt:
 
     def decrypt_text(self, text: str) -> str:
         """
-        De
-        :param text:
-        :return:
+        Decrypts the text by matching the index of the original letter and applying an encryption algorithm with the provided key
+        :param text: encoded text
+        :return: decoded text
         """
 
         for sv in range(2, 26):
