@@ -10,7 +10,8 @@ class Encrypt:
         assert 1 < key, "Key must be positive odd number higher than 1"
         assert key % 5, "Key cannot be divisible by 5"  # encrypting algorithm doesnt work properly
         self.key = key
-        self.secret_value = 12  # must be int in range [2,25] (limited for reducing computation time)
+        self.secret_value = 12
+        assert 1 < self.secret_value <= 25, "Secret value must be int in range [2,25]" # limited for reducing computation time during decrypting
 
     def encrypt_letter(self, letter:str) -> str:
         """
