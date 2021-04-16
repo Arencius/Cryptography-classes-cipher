@@ -2,7 +2,7 @@ from src.encryption import Encrypt
 from src.decryption import Decrypt
 
 if __name__ == '__main__':
-    key = int(input('Key to encode: '))
+    key = int(input('Key used for encoding: '))
     encryptor = Encrypt(key)
     decryptor = Decrypt(key)
 
