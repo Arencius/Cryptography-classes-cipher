@@ -10,6 +10,10 @@ def is_english(text:str) -> bool:
     :return: returns True if given text consists of only valid english words
     """
 
+    # raise error if input is empty
+    if not text.strip():
+        raise ValueError("Text cannot be empty")
+
     # initialize the english dictionary
     english_dict = enchant.Dict('en_US')
 
