@@ -1,5 +1,7 @@
 class Encrypt:
     ALPHABET  = 'abcdefghijklmnopqrstuwxyz'
+    SECRET_VALUE_MIN = 2
+    SECRET_VALUE_MAX = 25
 
     def __init__(self, key:int):
         """
@@ -11,7 +13,7 @@ class Encrypt:
         assert key % 5, "Key cannot be divisible by 5"  # encrypting algorithm doesnt work properly
         self.key = key
         self.secret_value = 12
-        assert 1 < self.secret_value <= 25, "Secret value must be int in range [2,25]" # limited for reducing computation time during decrypting
+        assert Encrypt.SECRET_VALUE_MIN <= self.secret_value <= Encrypt.SECRET_VALUE_MAX, "Secret value must be int in range [2,25]"
 
     def encrypt_letter(self, letter:str) -> str:
         """
