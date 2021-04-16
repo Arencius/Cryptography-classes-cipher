@@ -51,7 +51,7 @@ class Decrypt:
         """
 
         # secret values in range [2, 25]
-        for sv in range(2, 26):
+        for sv in range(Encrypt.SECRET_VALUE_MIN, Encrypt.SECRET_VALUE_MAX+1):
             decrypted_text = ''.join(self.decrypt_letter(letter, sv) if letter in Encrypt.ALPHABET else letter for letter in text.lower())
             # text with removed punctuation
             decrypted_text_clear = re.sub(r'[,!?.;:]', '', decrypted_text)
